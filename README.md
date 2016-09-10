@@ -19,6 +19,7 @@ Loading.showLoading(this, "开始加载数据");
 
 ## Screenshot
 ![Screenshot](https://raw.githubusercontent.com/LiangMaYong/android-loading/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/LiangMaYong/android-loading/master/screenshot_1.png)
 
 ##License
 ```
