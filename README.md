@@ -1,14 +1,9 @@
-﻿# android-preferences
-this is android preferences
+﻿# android-loading
+this is android loading dialog
 
 Welcome Star and Issues
 
 download jar : [android-loading-src.jar](https://raw.githubusercontent.com/LiangMaYong/android-loading/master/jar/android-loading-src.jar)
-
-## Image
-![Image](https://raw.githubusercontent.com/LiangMaYong/android-loading/master/Screenshot_0.png)
-
-![Image](https://raw.githubusercontent.com/LiangMaYong/android-loading/master/Screenshot_1.png)
 
 ## Use this
 1,showLoading
@@ -21,6 +16,9 @@ Loading.showLoading(this, "开始加载数据");
 ```
  Loading.cancelLoading(MainActivity.this);
 ```
+## Screenshot
+![Image](https://raw.githubusercontent.com/LiangMaYong/android-loading/master/screenshot.png)
+
 ##License
 ```
 Copyright 2016 LiangMaYong
