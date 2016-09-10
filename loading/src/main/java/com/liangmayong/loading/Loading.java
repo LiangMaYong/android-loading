@@ -43,7 +43,7 @@ public class Loading {
             DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager()
                     .findFragmentByTag(TAG);
             if (loadingFragment != null) {
-                activity.getSupportFragmentManager().beginTransaction().hide(loadingFragment).commit();
+                activity.getSupportFragmentManager().beginTransaction().remove(loadingFragment).commit();
             }
         } catch (Exception e) {
         }
