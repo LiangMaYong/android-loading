@@ -122,6 +122,32 @@ public class LoadingFragment extends DialogFragment {
         return rootLayout;
     }
 
+    /**
+     * setBackgroundColor
+     *
+     * @param color color
+     */
+    public void setBackgroundColor(int color) {
+        if (color == -1) {
+            return;
+        }
+        rootLayout.setBackgroundDrawable(new RoundDrawable(20, color));
+    }
+
+    /**
+     * setLabelColor
+     *
+     * @param color color
+     */
+    public void setLabelColor(int color) {
+        if (color == -1) {
+            return;
+        }
+        if (labelView != null) {
+            labelView.setTextColor(color);
+        }
+    }
+
     private int dip2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);

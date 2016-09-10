@@ -18,12 +18,36 @@ public class Loading {
      *
      * @param activity activity
      */
+    public static void showLoading(FragmentActivity activity) {
+        showLoading(activity, "", -1, -1);
+    }
+
+    /**
+     * showLoading
+     *
+     * @param activity activity
+     * @param label    label
+     */
     public static void showLoading(FragmentActivity activity, String label) {
+        showLoading(activity, label, -1, -1);
+    }
+
+    /**
+     * showLoading
+     *
+     * @param activity        activity
+     * @param label           label
+     * @param backgroundColor backgroundColor
+     * @param labelColor      labelColor
+     */
+    public static void showLoading(FragmentActivity activity, String label, int backgroundColor, int labelColor) {
         try {
             DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager()
                     .findFragmentByTag(TAG);
             loadingFragment = loadingFragment == null ? new LoadingFragment() : loadingFragment;
             ((LoadingFragment) loadingFragment).setLabel(label);
+            ((LoadingFragment) loadingFragment).setLabelColor(labelColor);
+            ((LoadingFragment) loadingFragment).setBackgroundColor(backgroundColor);
             if (loadingFragment.isAdded()) {
                 activity.getSupportFragmentManager().beginTransaction().show(loadingFragment).commit();
             } else {
