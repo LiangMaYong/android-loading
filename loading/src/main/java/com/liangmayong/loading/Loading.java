@@ -19,13 +19,17 @@ public class Loading {
      * @param activity activity
      */
     public static void showLoading(FragmentActivity activity, String label) {
-        DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager().findFragmentByTag(TAG);
-        loadingFragment = loadingFragment == null ? new LoadingFragment() : loadingFragment;
-        ((LoadingFragment) loadingFragment).setLabel(label);
-        if (loadingFragment.isAdded()) {
-            activity.getSupportFragmentManager().beginTransaction().show(loadingFragment).commit();
-        } else {
-            loadingFragment.show(activity.getSupportFragmentManager(), TAG);
+        try {
+            DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager()
+                    .findFragmentByTag(TAG);
+            loadingFragment = loadingFragment == null ? new LoadingFragment() : loadingFragment;
+            ((LoadingFragment) loadingFragment).setLabel(label);
+            if (loadingFragment.isAdded()) {
+                activity.getSupportFragmentManager().beginTransaction().show(loadingFragment).commit();
+            } else {
+                loadingFragment.show(activity.getSupportFragmentManager(), TAG);
+            }
+        } catch (Exception e) {
         }
     }
 
@@ -35,9 +39,13 @@ public class Loading {
      * @param activity activity
      */
     public static void cancelLoading(FragmentActivity activity) {
-        DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager().findFragmentByTag(TAG);
-        if (loadingFragment != null) {
-            activity.getSupportFragmentManager().beginTransaction().hide(loadingFragment).commit();
+        try {
+            DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager()
+                    .findFragmentByTag(TAG);
+            if (loadingFragment != null) {
+                activity.getSupportFragmentManager().beginTransaction().hide(loadingFragment).commit();
+            }
+        } catch (Exception e) {
         }
     }
 
