@@ -16,8 +16,9 @@ Loading.showLoading(this, "开始加载数据");
 ```
  Loading.cancelLoading(MainActivity.this);
 ```
+
 ## Screenshot
-![Image](https://raw.githubusercontent.com/LiangMaYong/android-loading/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/LiangMaYong/android-loading/master/screenshot.png)
 
 ##License
 ```
