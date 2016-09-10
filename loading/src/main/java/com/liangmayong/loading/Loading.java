@@ -18,8 +18,8 @@ public class Loading {
      *
      * @param activity activity
      */
-    public static void showLoading(FragmentActivity activity) {
-        showLoading(activity, "", -1, -1, 0.0f);
+    public static LoadingFragment showLoading(FragmentActivity activity) {
+        return showLoading(activity, "", -1, -1, 0.0f);
     }
 
     /**
@@ -28,8 +28,8 @@ public class Loading {
      * @param activity activity
      * @param label    label
      */
-    public static void showLoading(FragmentActivity activity, String label) {
-        showLoading(activity, label, -1, -1, 0.0f);
+    public static LoadingFragment showLoading(FragmentActivity activity, String label) {
+        return showLoading(activity, label, -1, -1, 0.0f);
     }
 
     /**
@@ -38,9 +38,9 @@ public class Loading {
      * @param activity        activity
      * @param label           label
      * @param backgroundColor backgroundColor
-     * @param labelColor      labelColor
+     * @param dimAmount       dimAmount
      */
-    public static void showLoading(FragmentActivity activity, String label, int loadingColor, int backgroundColor, float dimAmount) {
+    public static LoadingFragment showLoading(FragmentActivity activity, String label, int loadingColor, int backgroundColor, float dimAmount) {
         try {
             DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager()
                     .findFragmentByTag(TAG);
@@ -54,9 +54,11 @@ public class Loading {
             } else {
                 loadingFragment.show(activity.getSupportFragmentManager(), TAG);
             }
+            return (LoadingFragment) loadingFragment;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     /**

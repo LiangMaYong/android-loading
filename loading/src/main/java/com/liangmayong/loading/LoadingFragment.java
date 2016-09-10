@@ -6,8 +6,8 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -30,9 +30,10 @@ public class LoadingFragment extends DialogFragment {
     private TextView labelView = null;
     private String label = "loading";
     private float dimAmount = 0.0f;
-    private Drawable drawable = null;
     private int loadingColor = 0xffffffff;
+    private int backgroundColor = 0x90333333;
     private LoadingProgressWheel progressWheel = null;
+    private Handler handler = new Handler();
 
     /**
      * labelView
@@ -115,11 +116,7 @@ public class LoadingFragment extends DialogFragment {
         rootLayout.setGravity(Gravity.CENTER);
         rootLayout.setOrientation(LinearLayout.VERTICAL);
         rootLayout.setPadding(dip2px(context, 20), dip2px(context, 10), dip2px(context, 20), dip2px(context, 10));
-        if (drawable != null) {
-            rootLayout.setBackgroundDrawable(drawable);
-        } else {
-            rootLayout.setBackgroundDrawable(new RoundDrawable(20, 0x99333333));
-        }
+        rootLayout.setBackgroundDrawable(new RoundDrawable(20, backgroundColor));
         progressWheel = getProgressWheel(context, loadingColor);
         rootLayout.addView(progressWheel);
 
@@ -148,16 +145,35 @@ public class LoadingFragment extends DialogFragment {
     protected LoadingProgressWheel getProgressWheel(Context context, int color) {
         LoadingProgressWheel progressWheel = new LoadingProgressWheel(context);
         progressWheel.setBarColor(color);
-        progressWheel.setRimColor(0x05eeeeee);
+        progressWheel.setRimColor(0x00ffffff);
         progressWheel.setRimWidth(5);
         progressWheel.setBarWidth(5);
         int width = dip2px(context, 30);
         progressWheel.setCircleRadius(width);
         progressWheel.setPadding(0, dip2px(context, 10), 0, dip2px(context, 10));
         if (!progressWheel.isSpinning()) {
-            progressWheel.spin();
+            handler.postDelayed(runnable, 100);
         }
         return progressWheel;
+    }
+
+    /**
+     * runnable
+     */
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (progressWheel != null) {
+                // progressWheel.spin();
+                progressWheel.spin();
+            }
+        }
+    };
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        handler.removeCallbacks(runnable);
     }
 
     /**
@@ -170,9 +186,9 @@ public class LoadingFragment extends DialogFragment {
         if (color == -1) {
             return;
         }
-        drawable = new RoundDrawable(20, color);
+        backgroundColor = color;
         if (rootLayout != null) {
-            rootLayout.setBackgroundDrawable(drawable);
+            rootLayout.setBackgroundDrawable(new RoundDrawable(20, backgroundColor));
         }
     }
 
