@@ -80,6 +80,7 @@ public class LoadingFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         Context context = inflater.getContext();
         rootLayout = new LinearLayout(context);
 
@@ -156,6 +157,7 @@ public class LoadingFragment extends DialogFragment {
             @Override
             public void drawRect(Rect r, Paint paint) {
                 RectF rectF = new RectF(r);
+                paint.setAntiAlias(true);
                 canvas.drawRoundRect(rectF, round, round, paint);
             }
         }
