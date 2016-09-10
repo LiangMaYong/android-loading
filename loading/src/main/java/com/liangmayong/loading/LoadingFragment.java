@@ -76,6 +76,7 @@ public class LoadingFragment extends DialogFragment {
         window.setAttributes(windowParams);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -103,7 +104,7 @@ public class LoadingFragment extends DialogFragment {
         }
         rootLayout.addView(progressWheel);
 
-        labelView = new TextView(getContext());
+        labelView = new TextView(context);
         labelView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         labelView.setSingleLine();
         labelView.setGravity(Gravity.CENTER);
