@@ -30,7 +30,7 @@ public class LoadingFragment extends DialogFragment {
     private TextView labelView = null;
     private String label = "loading";
     private float dimAmount = 0.0f;
-    private int round = 30;
+    private int round = 20;
     private int loadingColor = 0xffffffff;
     private int backgroundColor = 0x90333333;
     private LoadingProgressWheel progressWheel = null;

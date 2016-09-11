@@ -18,7 +18,7 @@ public class Loading {
     //defualt dimAmount
     private static float dimAmount = 0.0f;
     //defualt round
-    private static int round = 30;
+    private static int round = 20;
     //fragment tag
     private static final String TAG = "LoadingFragment";
 
