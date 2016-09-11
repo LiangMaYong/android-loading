@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Loading.cancelLoading(MainActivity.this);
+                Loading.showLoading(MainActivity.this, "开始加载数据");
             }
         }, 3000);
     }
