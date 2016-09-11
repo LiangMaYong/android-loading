@@ -17,12 +17,13 @@ Loading.showLoading(this, "开始加载数据");
 
 //custom colors
 Loading.setDimAmount(0.05f);
+Loading.setRound(30);
 Loading.setLoadingColor(0xff3F51B5);
 Loading.setBackgroundColor(0x30aaaaaa);
 
 of
 
-Loading.showLoading(this, "Loading", 0xff3F51B5, 0x30aaaaaa, 0.3f);
+Loading.showLoading(this, "Loading", 0xff3F51B5, 0x30aaaaaa,30, 0.05f);
 
 ```
 2,cancelLoading

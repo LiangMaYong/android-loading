@@ -16,7 +16,9 @@ public class Loading {
     //defualt backgroundColor
     private static int backgroundColor = -1;
     //defualt dimAmount
-    private static float dimAmount = 0.05f;
+    private static float dimAmount = 0.0f;
+    //defualt round
+    private static int round = 30;
     //fragment tag
     private static final String TAG = "LoadingFragment";
 
@@ -48,12 +50,21 @@ public class Loading {
     }
 
     /**
+     * setLoadingColor
+     *
+     * @param round round
+     */
+    public static void setRound(int round) {
+        Loading.round = round;
+    }
+
+    /**
      * showLoading
      *
      * @param activity activity
      */
     public static LoadingFragment showLoading(FragmentActivity activity) {
-        return showLoading(activity, "", loadingColor, backgroundColor, dimAmount);
+        return showLoading(activity, "", loadingColor, backgroundColor, round, dimAmount);
     }
 
     /**
@@ -63,7 +74,7 @@ public class Loading {
      * @param label    label
      */
     public static LoadingFragment showLoading(FragmentActivity activity, String label) {
-        return showLoading(activity, label, loadingColor, backgroundColor, dimAmount);
+        return showLoading(activity, label, loadingColor, backgroundColor, round, dimAmount);
     }
 
     /**
@@ -74,7 +85,7 @@ public class Loading {
      * @param backgroundColor backgroundColor
      * @param dimAmount       dimAmount
      */
-    public static LoadingFragment showLoading(FragmentActivity activity, String label, int loadingColor, int backgroundColor, float dimAmount) {
+    public static LoadingFragment showLoading(FragmentActivity activity, String label, int loadingColor, int backgroundColor, int round, float dimAmount) {
         try {
             DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager()
                     .findFragmentByTag(TAG);
@@ -83,6 +94,7 @@ public class Loading {
             ((LoadingFragment) loadingFragment).setLoadingColor(loadingColor);
             ((LoadingFragment) loadingFragment).setBackgroundColor(backgroundColor);
             ((LoadingFragment) loadingFragment).setDimAmount(dimAmount);
+            ((LoadingFragment) loadingFragment).setRound(round);
             if (loadingFragment.isAdded()) {
                 activity.getSupportFragmentManager().beginTransaction().show(loadingFragment).commit();
             } else {

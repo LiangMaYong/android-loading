@@ -30,6 +30,7 @@ public class LoadingFragment extends DialogFragment {
     private TextView labelView = null;
     private String label = "loading";
     private float dimAmount = 0.0f;
+    private int round = 30;
     private int loadingColor = 0xffffffff;
     private int backgroundColor = 0x90333333;
     private LoadingProgressWheel progressWheel = null;
@@ -116,7 +117,7 @@ public class LoadingFragment extends DialogFragment {
         rootLayout.setGravity(Gravity.CENTER);
         rootLayout.setOrientation(LinearLayout.VERTICAL);
         rootLayout.setPadding(dip2px(context, 20), dip2px(context, 10), dip2px(context, 20), dip2px(context, 10));
-        rootLayout.setBackgroundDrawable(new RoundDrawable(20, backgroundColor));
+        rootLayout.setBackgroundDrawable(new RoundDrawable(round, backgroundColor));
         progressWheel = getProgressWheel(context, loadingColor);
         rootLayout.addView(progressWheel);
 
@@ -188,7 +189,23 @@ public class LoadingFragment extends DialogFragment {
         }
         backgroundColor = color;
         if (rootLayout != null) {
-            rootLayout.setBackgroundDrawable(new RoundDrawable(20, backgroundColor));
+            rootLayout.setBackgroundDrawable(new RoundDrawable(round, backgroundColor));
+        }
+    }
+
+    /**
+     * setRound
+     *
+     * @param round round
+     */
+    @SuppressWarnings("deprecation")
+    public void setRound(int round) {
+        if (round < 0) {
+            return;
+        }
+        this.round = round;
+        if (rootLayout != null) {
+            rootLayout.setBackgroundDrawable(new RoundDrawable(round, backgroundColor));
         }
     }
 
