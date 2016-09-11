@@ -11,7 +11,41 @@ import android.support.v4.app.FragmentActivity;
  */
 public class Loading {
 
+    //defualt loadingColor
+    private static int loadingColor = -1;
+    //defualt backgroundColor
+    private static int backgroundColor = -1;
+    //defualt dimAmount
+    private static float dimAmount = 0.05f;
+    //fragment tag
     private static final String TAG = "LoadingFragment";
+
+    /**
+     * setBackgroundColor
+     *
+     * @param backgroundColor backgroundColor
+     */
+    public static void setBackgroundColor(int backgroundColor) {
+        Loading.backgroundColor = backgroundColor;
+    }
+
+    /**
+     * setDimAmount
+     *
+     * @param dimAmount dimAmount
+     */
+    public static void setDimAmount(float dimAmount) {
+        Loading.dimAmount = dimAmount;
+    }
+
+    /**
+     * setLoadingColor
+     *
+     * @param loadingColor loadingColor
+     */
+    public static void setLoadingColor(int loadingColor) {
+        Loading.loadingColor = loadingColor;
+    }
 
     /**
      * showLoading
@@ -19,7 +53,7 @@ public class Loading {
      * @param activity activity
      */
     public static LoadingFragment showLoading(FragmentActivity activity) {
-        return showLoading(activity, "", -1, -1, 0.0f);
+        return showLoading(activity, "", loadingColor, backgroundColor, dimAmount);
     }
 
     /**
@@ -29,7 +63,7 @@ public class Loading {
      * @param label    label
      */
     public static LoadingFragment showLoading(FragmentActivity activity, String label) {
-        return showLoading(activity, label, -1, -1, 0.0f);
+        return showLoading(activity, label, loadingColor, backgroundColor, dimAmount);
     }
 
     /**

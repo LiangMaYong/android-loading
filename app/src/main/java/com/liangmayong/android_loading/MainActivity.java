@@ -12,7 +12,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Loading.showLoading(this, "Loading", 0xff3F51B5, 0x30aaaaaa, 0.3f);
+        Loading.setDimAmount(0.05f);
+        Loading.setLoadingColor(0xff3F51B5);
+        Loading.setBackgroundColor(0x30aaaaaa);
+
+        Loading.showLoading(this, "Loading");
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

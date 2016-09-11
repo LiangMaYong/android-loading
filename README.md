@@ -8,9 +8,22 @@ download jar : [android-loading-src.jar](https://raw.githubusercontent.com/Liang
 ## Use this
 1,showLoading
 ```
+// no label
+Loading.showLoading(this);
+
 Loading.showLoading(this, "Loading");
 
 Loading.showLoading(this, "开始加载数据");
+
+//custom colors
+Loading.setDimAmount(0.05f);
+Loading.setLoadingColor(0xff3F51B5);
+Loading.setBackgroundColor(0x30aaaaaa);
+
+of
+
+Loading.showLoading(this, "Loading", 0xff3F51B5, 0x30aaaaaa, 0.3f);
+
 ```
 2,cancelLoading
 ```

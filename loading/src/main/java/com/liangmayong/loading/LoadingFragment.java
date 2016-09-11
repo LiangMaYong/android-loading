@@ -95,7 +95,7 @@ public class LoadingFragment extends DialogFragment {
             if (getDialog() != null && getDialog().getWindow() != null) {
                 Window window = getDialog().getWindow();
                 WindowManager.LayoutParams windowParams = window.getAttributes();
-                windowParams.dimAmount = 0.0f;
+                windowParams.dimAmount = dimAmount;
                 window.setAttributes(windowParams);
             }
         } catch (Exception e) {
