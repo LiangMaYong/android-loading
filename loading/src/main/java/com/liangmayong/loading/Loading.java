@@ -85,7 +85,7 @@ public class Loading {
      * @param backgroundColor backgroundColor
      * @param dimAmount       dimAmount
      */
-    public static LoadingFragment showLoading(FragmentActivity activity, String label, int loadingColor, int backgroundColor, float dimAmount) {
+    public static LoadingFragment showLoading(FragmentActivity activity, String label, int loadingColor, int backgroundColor,int round, float dimAmount) {
         try {
             synchronized (activity) {
                 DialogFragment loadingFragment = (DialogFragment) activity.getSupportFragmentManager()
@@ -95,6 +95,7 @@ public class Loading {
                     ((LoadingFragment) loadingFragment).setLoadingColor(loadingColor);
                     ((LoadingFragment) loadingFragment).setBackgroundColor(backgroundColor);
                     ((LoadingFragment) loadingFragment).setDimAmount(dimAmount);
+                    ((LoadingFragment) loadingFragment).setRound(round);
                     if (loadingFragment.isAdded()) {
                         activity.getSupportFragmentManager().beginTransaction().show(loadingFragment).commit();
                     }
@@ -104,6 +105,7 @@ public class Loading {
                     ((LoadingFragment) loadingFragment).setLoadingColor(loadingColor);
                     ((LoadingFragment) loadingFragment).setBackgroundColor(backgroundColor);
                     ((LoadingFragment) loadingFragment).setDimAmount(dimAmount);
+                    ((LoadingFragment) loadingFragment).setRound(round);
                     loadingFragment.show(activity.getSupportFragmentManager(), TAG);
                 }
                 return (LoadingFragment) loadingFragment;
